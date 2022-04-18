@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FeriadoService } from '../feriado.service';
 
 @Component({
   selector: 'app-feriado-create',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeriadoCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private feriadorService: FeriadoService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  createFeriado(): void {
+    this.feriadorService.showMessage("Feriado adicionado!");
+  }
+
+  cancel(): void {
+    this.router.navigate(['/feriados']);
+  }
 }
