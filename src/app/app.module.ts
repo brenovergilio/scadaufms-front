@@ -13,6 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
+import { MedidorCrudComponent } from './views/medidor-crud/medidor-crud.component';
+import { FeriadoCrudComponent } from './views/feriado-crud/feriado-crud.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HomeComponent } from './views/home/home.component';
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    MedidorCrudComponent,
+    FeriadoCrudComponent
   ],
   imports: [
     BrowserModule,
