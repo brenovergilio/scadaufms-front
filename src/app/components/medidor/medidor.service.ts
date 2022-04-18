@@ -24,4 +24,8 @@ export class MedidorService {
   create(medidor: MedidorMD30): Observable<MedidorMD30> {
     return this.http.post<MedidorMD30>(this.BASE_URL, medidor);
   }
+
+  read(): Observable<Array<MedidorMD30>> {
+    return this.http.get<Array<MedidorMD30>>(this.BASE_URL);
+  }
 }
