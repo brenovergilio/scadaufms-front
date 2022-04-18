@@ -15,6 +15,8 @@ import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { MedidorCrudComponent } from './views/medidor-crud/medidor-crud.component';
 import { FeriadoCrudComponent } from './views/feriado-crud/feriado-crud.component';
+import { MedidorCreateComponent } from './components/medidor/medidor-create/medidor-create.component';
+import { FeriadoCreateComponent } from './components/feriado/feriado-create/feriado-create.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FeriadoCrudComponent } from './views/feriado-crud/feriado-crud.componen
     NavComponent,
     HomeComponent,
     MedidorCrudComponent,
-    FeriadoCrudComponent
+    FeriadoCrudComponent,
+    MedidorCreateComponent,
+    FeriadoCreateComponent
   ],
   imports: [
     BrowserModule,
