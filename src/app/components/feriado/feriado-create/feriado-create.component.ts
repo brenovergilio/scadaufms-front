@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Feriado } from '../feriado.model';
 import { FeriadoService } from '../feriado.service';
 
 @Component({

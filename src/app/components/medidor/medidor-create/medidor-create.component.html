@@ -1,7 +1,18 @@
-<button mat-raised-button (click)="createMedidor()" color="primary">
-  Salvar
-</button>
+<mat-card>
+  <mat-card-title>Adicionar MedidorMD30</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="IP" [(ngModel)]="medidor.ip" name="ip">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nome" [(ngModel)]="medidor.name" name="name">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="createMedidor()" color="primary">
+    Salvar
+  </button>
 
-<button mat-raised-button (click)="cancel()">
-  Cancelar
-</button>
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MedidorMD30 } from '../medidor.model';
 import { MedidorService } from '../medidor.service';
 
 @Component({
@@ -9,13 +10,21 @@ import { MedidorService } from '../medidor.service';
 })
 export class MedidorCreateComponent implements OnInit {
 
+  medidor: MedidorMD30 = {
+    ip: '',
+    name: '',
+  } 
+
   constructor(private medidorService: MedidorService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   createMedidor(): void {
-    this.medidorService.showMessage("Medidor adicionado!");
+    this.medidorService.create(this.medidor).subscribe(() => {
+      this.medidorService.showMessage("Medidor adicionado!");
+      this.router.navigate(['/medidores']);
+    });
   }
 
   cancel(): void {
