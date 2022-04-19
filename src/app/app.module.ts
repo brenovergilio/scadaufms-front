@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,17 @@ import { MedidorCrudComponent } from './views/medidor-crud/medidor-crud.componen
 import { FeriadoCrudComponent } from './views/feriado-crud/feriado-crud.component';
 import { MedidorCreateComponent } from './components/medidor/medidor-create/medidor-create.component';
 import { FeriadoCreateComponent } from './components/feriado/feriado-create/feriado-create.component';
+import { MedidorReadComponent } from './components/medidor/medidor-read/medidor-read.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { FeriadoReadComponent } from './components/feriado/feriado-read/feriado-read.component';
 
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +45,9 @@ import { FeriadoCreateComponent } from './components/feriado/feriado-create/feri
     MedidorCrudComponent,
     FeriadoCrudComponent,
     MedidorCreateComponent,
-    FeriadoCreateComponent
+    FeriadoCreateComponent,
+    MedidorReadComponent,
+    FeriadoReadComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +62,17 @@ import { FeriadoCreateComponent } from './components/feriado/feriado-create/feri
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,13 +10,21 @@ import { FeriadoService } from '../feriado.service';
 })
 export class FeriadoCreateComponent implements OnInit {
 
+  feriado: Feriado = {
+    name: '',
+    day: null
+  }
+
   constructor(private feriadorService: FeriadoService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   createFeriado(): void {
-    this.feriadorService.showMessage("Feriado adicionado!");
+    this.feriadorService.create(this.feriado).subscribe(() => {
+      this.feriadorService.showMessage("Feriado adicionado!");
+      this.router.navigate(['/feriados']);
+    });
   }
 
   cancel(): void {
