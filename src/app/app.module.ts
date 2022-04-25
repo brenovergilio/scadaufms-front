@@ -32,6 +32,8 @@ import { FeriadoReadComponent } from './components/feriado/feriado-read/feriado-
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { FeriadoDeleteComponent } from './components/feriado/feriado-delete/feriado-delete.component';
+import { MedidorDeleteComponent } from './components/medidor/medidor-delete/medidor-delete.component';
 
 
 registerLocaleData(localePt);
@@ -47,7 +49,9 @@ registerLocaleData(localePt);
     MedidorCreateComponent,
     FeriadoCreateComponent,
     MedidorReadComponent,
-    FeriadoReadComponent
+    FeriadoReadComponent,
+    FeriadoDeleteComponent,
+    MedidorDeleteComponent
   ],
   imports: [
     BrowserModule,

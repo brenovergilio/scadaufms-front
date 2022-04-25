@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>Deletar feriado</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="ID" [value]="feriado.id" name="ID" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nome" [value]="feriado.name" name="name" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Dia" [value]="feriado.day" name="day" disabled>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="deleteFeriado()" color="warn">
+    Deletar
+  </button>
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

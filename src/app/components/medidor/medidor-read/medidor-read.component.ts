@@ -18,7 +18,7 @@ export class MedidorReadComponent implements AfterViewInit {
   dataSource: MedidorReadDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id','ip', 'name', 'port'];
+  displayedColumns = ['id','ip', 'name', 'port', 'actions'];
 
   constructor(private medidorService: MedidorService) {
     this.dataSource = new MedidorReadDataSource();

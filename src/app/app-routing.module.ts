@@ -6,6 +6,8 @@ import { MedidorCrudComponent } from './views/medidor-crud/medidor-crud.componen
 import { MedidorCreateComponent } from './components/medidor/medidor-create/medidor-create.component';
 import { FeriadoCrudComponent } from './views/feriado-crud/feriado-crud.component';
 import { FeriadoCreateComponent } from './components/feriado/feriado-create/feriado-create.component';
+import { FeriadoDeleteComponent } from './components/feriado/feriado-delete/feriado-delete.component';
+import { MedidorDeleteComponent } from './components/medidor/medidor-delete/medidor-delete.component';
 
 const routes: Routes = [
   {
@@ -21,12 +23,21 @@ const routes: Routes = [
     component: MedidorCreateComponent
   },
   {
+    path: "medidores/delete/:id",
+    component: MedidorDeleteComponent
+  },
+  {
     path: "feriados",
     component: FeriadoCrudComponent
   },
   {
     path: "feriados/create",
     component: FeriadoCreateComponent
+  }
+  ,
+  {
+    path: "feriados/delete/:id",
+    component: FeriadoDeleteComponent
   }
 ];
 

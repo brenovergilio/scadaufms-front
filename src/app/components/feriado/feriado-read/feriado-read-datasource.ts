@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Feriado } from '../feriado.model';
+import { DateTime } from 'luxon';
 
 /**
  * Data source for the FeriadoRead view. This class should
@@ -77,7 +78,6 @@ export class FeriadoReadDataSource extends DataSource<Feriado> {
 }
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
-function compare(a: string | number | Date | null, b: string | number | Date | null, isAsc: boolean): number {
-  if (a === null || b === null) return 0; 
+function compare(a: string | number | DateTime, b: string | number | DateTime, isAsc: boolean): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

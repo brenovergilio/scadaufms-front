@@ -5,6 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { Feriado } from '../feriado.model';
 import { FeriadoService } from '../feriado.service';
 import { FeriadoReadDataSource } from './feriado-read-datasource';
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-feriado-read',
@@ -18,20 +19,21 @@ export class FeriadoReadComponent implements AfterViewInit {
   dataSource: FeriadoReadDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'day'];
+  displayedColumns = ['id', 'name', 'day', 'actions'];
 
   constructor(private feriadoService: FeriadoService) {
     this.dataSource = new FeriadoReadDataSource();
     this.feriadoService.read().subscribe(feriados => {
       this.dataSource.data = feriados.map(feriado => {
-         return {
-           id: feriado.id,
-           name: feriado.name,
-           day: feriado.day
-         }
-       });
-       this.paginator._changePageSize(this.paginator.pageSize); 
-     });
+        const day = DateTime.utc(feriado.day.year, feriado.day.month, feriado.day.day);
+        return {
+          id: feriado.id,
+          name: feriado.name,
+          day: day
+       }
+      });
+      this.paginator._changePageSize(this.paginator.pageSize); 
+    });
   }
 
   ngAfterViewInit(): void {

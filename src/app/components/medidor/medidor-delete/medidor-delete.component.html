@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Deletar medidor</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="ID" [value]="medidor.id" name="id" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="IP" [value]="medidor.ip" name="ip" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nome" [value]="medidor.name" name="name" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Porta" [value]="medidor.port" name="port" disabled>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="deleteMedidor()" color="warn">
+    Deletar
+  </button>
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

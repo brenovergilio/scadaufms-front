@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DateTime } from 'luxon';
 import { Feriado } from '../feriado.model';
 import { FeriadoService } from '../feriado.service';
 
@@ -12,7 +13,7 @@ export class FeriadoCreateComponent implements OnInit {
 
   feriado: Feriado = {
     name: '',
-    day: null
+    day: DateTime.now()
   }
 
   constructor(private feriadorService: FeriadoService, private router: Router) { }
