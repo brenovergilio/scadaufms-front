@@ -8,6 +8,7 @@ import { FeriadoCrudComponent } from './views/feriado-crud/feriado-crud.componen
 import { FeriadoCreateComponent } from './components/feriado/feriado-create/feriado-create.component';
 import { FeriadoDeleteComponent } from './components/feriado/feriado-delete/feriado-delete.component';
 import { MedidorDeleteComponent } from './components/medidor/medidor-delete/medidor-delete.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: "medidores/delete/:id",
     component: MedidorDeleteComponent
+  },
+  {
+    path: "medidores/medicoes/:id",
+    component: TabsComponent
   },
   {
     path: "feriados",

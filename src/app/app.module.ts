@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
@@ -34,6 +35,8 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { FeriadoDeleteComponent } from './components/feriado/feriado-delete/feriado-delete.component';
 import { MedidorDeleteComponent } from './components/medidor/medidor-delete/medidor-delete.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { DateRangeComponent } from './components/date-range/date-range.component';
 
 
 registerLocaleData(localePt);
@@ -51,7 +54,9 @@ registerLocaleData(localePt);
     MedidorReadComponent,
     FeriadoReadComponent,
     FeriadoDeleteComponent,
-    MedidorDeleteComponent
+    MedidorDeleteComponent,
+    TabsComponent,
+    DateRangeComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ registerLocaleData(localePt);
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatTabsModule
   ],
   providers: [
     {

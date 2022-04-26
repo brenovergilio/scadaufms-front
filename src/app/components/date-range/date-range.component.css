@@ -1,0 +1,16 @@
+.cardDateRange, .dateRange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-form-field {
+  margin-right: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .cardDateRange, .dateRange {
+    flex-direction: column;
+  }
+}
