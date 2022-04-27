@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DateRange } from './date-range.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { DateRange } from './date-range.model';
 })
 export class DateRangeComponent implements OnInit {
 
+  @Output() dateRangeEmitter = new EventEmitter();
+
   dateRange: DateRange = {
     initialDate: this.setDefaultDatePickerToToday(),
     finalDate: this.setDefaultDatePickerToToday()
@@ -16,6 +18,7 @@ export class DateRangeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.emitDateRange();
   }
 
   setDefaultDatePickerToToday(): string {
@@ -37,7 +40,7 @@ export class DateRangeComponent implements OnInit {
     return today;
   }
 
-  showDate(): void {
-    console.log(this.dateRange);
+  emitDateRange(): void {
+    this.dateRangeEmitter.emit(this.dateRange);
   }
 }

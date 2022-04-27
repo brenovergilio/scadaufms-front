@@ -7,7 +7,7 @@
       <input type="date" matInput placeholder="Data Final" [(ngModel)]="dateRange.finalDate" name="finalDate">
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="showDate()" color="primary">
+  <button mat-raised-button (click)="emitDateRange()" color="primary">
     Atualizar
   </button>
 </mat-card>

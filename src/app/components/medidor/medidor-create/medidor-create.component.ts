@@ -33,8 +33,8 @@ export class MedidorCreateComponent implements OnInit {
     this.router.navigate(['/medidores']);
   }
 
-  /* Recebe um IPv4 e o formata para o padrão aceito pelo sistema operacional
-  Ex: '   000.230.090.001 ' resulta em '0.230.90.1
+  /* Receives an IPv4 and format it to a pattern accepted by the operational system
+    e.g.,'   000.230.090.001 ' input returns '0.230.90.1'
   */
 
   formatIP(ip: string): string {
