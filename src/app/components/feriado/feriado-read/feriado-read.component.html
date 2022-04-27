@@ -15,7 +15,7 @@
     <!-- Day Column -->
     <ng-container matColumnDef="day">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Dia</th>
-      <td mat-cell *matCellDef="let row">{{row.day | date:'shortDate'}}</td>
+      <td mat-cell *matCellDef="let row">{{row.day | date : 'shortDate' : 'utc'}}</td>
     </ng-container>
 
     <!-- Actions Column -->

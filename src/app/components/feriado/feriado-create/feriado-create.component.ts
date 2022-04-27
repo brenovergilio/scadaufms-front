@@ -13,7 +13,7 @@ export class FeriadoCreateComponent implements OnInit {
 
   feriado: Feriado = {
     name: '',
-    day: DateTime.now()
+    day: ''
   }
 
   constructor(private feriadorService: FeriadoService, private router: Router) { }

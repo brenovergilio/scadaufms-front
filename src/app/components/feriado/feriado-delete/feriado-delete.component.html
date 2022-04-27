@@ -8,7 +8,7 @@
       <input matInput placeholder="Nome" [value]="feriado.name" name="name" disabled>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Dia" [value]="feriado.day" name="day" disabled>
+      <input matInput placeholder="Dia" [value]="feriado.day | date : 'shortDate' : 'utc'" name="day" disabled>
     </mat-form-field>
   </form>
   <button mat-raised-button (click)="deleteFeriado()" color="warn">
