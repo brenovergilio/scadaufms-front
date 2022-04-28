@@ -1,6 +1,6 @@
 <app-date-range (dateRangeEmitter)="getDateRange($event)"></app-date-range>
 
-<mat-tab-group (selectedTabChange)="tabDefiner($event)" class="medicoes" dynamicHeight="true" mat-align-tabs="center">
+<mat-tab-group (selectedTabChange)="tabDefiner($event)" class="medicoes" dynamicHeight mat-align-tabs="center">
   <mat-tab label="Tensões">
 
   </mat-tab>
@@ -8,7 +8,7 @@
     
   </mat-tab>
   <mat-tab label="Potências Ativas">
-
+    <app-bar-chart></app-bar-chart>
   </mat-tab>
   <mat-tab label="Potências Reativas">
     
