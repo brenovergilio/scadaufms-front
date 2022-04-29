@@ -2,19 +2,19 @@
 
 <mat-tab-group (selectedTabChange)="tabDefiner($event)" class="medicoes" dynamicHeight mat-align-tabs="center">
   <mat-tab label="Tensões">
-
+    <app-line-chart [inputs]="this.medicoes"></app-line-chart>
   </mat-tab>
   <mat-tab label="Correntes">
-    
+    <app-line-chart [inputs]="this.medicoes"></app-line-chart>
   </mat-tab>
   <mat-tab label="Potências Ativas">
-    <app-bar-chart></app-bar-chart>
+    <app-line-chart [inputs]="this.medicoes"></app-line-chart>
   </mat-tab>
   <mat-tab label="Potências Reativas">
-    
+    <app-line-chart [inputs]="this.medicoes"></app-line-chart>
   </mat-tab>
   <mat-tab label="Potências Aparentes">
-
+    <app-line-chart [inputs]="this.medicoes"></app-line-chart>
   </mat-tab>
   <mat-tab label="Fatores de Potência">
     

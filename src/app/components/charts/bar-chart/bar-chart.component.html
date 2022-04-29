@@ -1,19 +1,24 @@
-<ngx-charts-bar-vertical
-[results]="test"
-[gradient]="gradient"
-[xAxis]="xAxis"
-[yAxis]="yAxis"
-[legend]="legend"
-[showXAxisLabel]="showXAxisLabel"
-[showYAxisLabel]="showYAxisLabel"
-[xAxisLabel]="xAxisLabel"
-[yAxisLabel]="yAxisLabel"
-[legendTitle]="legendTitle"
-[legendPosition]="legendPosition"
-[animations]="animations"
-[showGridLines]="showGridLines"
-[showDataLabel]="showDataLabel"
-[barPadding]="barPadding"
-[tooltipDisabled]="tooltipDisabled"
-[roundEdges]="roundEdges">  
-</ngx-charts-bar-vertical>
+<ng-container *ngIf="inputsIsLoaded">
+  <ngx-charts-bar-vertical-2d
+  [view]="view"
+  [results]="results"
+  [gradient]="gradient"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [legend]="legend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [legendTitle]="legendTitle"
+  [legendPosition]="legendPosition"
+  [animations]="animations"
+  [showGridLines]="showGridLines"
+  [showDataLabel]="showDataLabel"
+  [barPadding]="barPadding"
+  [tooltipDisabled]="tooltipDisabled"
+  [roundEdges]="roundEdges">  
+  </ngx-charts-bar-vertical-2d>
+</ng-container>
+
+<p *ngIf="!inputsIsLoaded">Não há medições para esse período</p>

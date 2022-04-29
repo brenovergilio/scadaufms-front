@@ -1,32 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { LegendPosition } from '@swimlane/ngx-charts';
+import { Medicao } from '../../tabs/medicao.model';
+import { AcceptedFormat, Series } from '../accepted-format.model';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css']
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements OnInit, OnChanges {
 
-  test = [
-    {
-      name: 'test',
-      value: 123
-    },
-    {
-      name: 'test2',
-      value: 125
-    },
-    {
-      name: 'test3',
-      value: 126
-    },
-    {
-      name: 'test4',
-      value: 128
-    }
-  ]
-  
+  @Input() inputs: Medicao[];
+  results: AcceptedFormat[];  
+  inputsIsLoaded: boolean = false;
+  view: [number, number] = [1100, 500];
   schemeType: string = "ordinal";
   gradient: boolean = false;
   xAxis: boolean = true;
@@ -50,4 +37,34 @@ export class BarChartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnChanges(): void {
+    this.checkInputsArray();
+    this.results = [];
+    
+    if(this.inputsIsLoaded)
+      this.convertInputToAcceptedChartDataFormat()
+  }
+
+  checkInputsArray(): void {
+    if(this.inputs !== undefined && this.inputs.length !== 0)
+      this.inputsIsLoaded = true;
+    else
+      this.inputsIsLoaded = false;
+  }
+
+  convertInputToAcceptedChartDataFormat(): void {
+    for(let i = 0; i < this.inputs.length; i++) {
+      let series: Array<Series> = new Array<Series>();
+      for(const serie of Object.entries(this.inputs[i].values)) {
+        series.push({
+          name: serie[0],
+          value: Number(serie[1])
+        })
+      }
+      this.results.push({
+        name: this.inputs[i].timestamp,
+        series: series
+      });
+    }
+  }
 }
