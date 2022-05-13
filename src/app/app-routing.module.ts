@@ -9,40 +9,53 @@ import { FeriadoCreateComponent } from './components/feriado/feriado-create/feri
 import { FeriadoDeleteComponent } from './components/feriado/feriado-delete/feriado-delete.component';
 import { MedidorDeleteComponent } from './components/medidor/medidor-delete/medidor-delete.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "medidores",
-    component: MedidorCrudComponent
+    component: MedidorCrudComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "medidores/create",
-    component: MedidorCreateComponent
+    component: MedidorCreateComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "medidores/delete/:id",
-    component: MedidorDeleteComponent
+    component: MedidorDeleteComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "medidores/medicoes/:id",
-    component: TabsComponent
+    component: TabsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "feriados",
-    component: FeriadoCrudComponent
+    component: FeriadoCrudComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "feriados/create",
-    component: FeriadoCreateComponent
-  }
-  ,
+    component: FeriadoCreateComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: "feriados/delete/:id",
-    component: FeriadoDeleteComponent
+    component: FeriadoDeleteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "login",
+    component: AuthenticationComponent
   }
 ];
 

@@ -1,3 +1,4 @@
 <app-header></app-header>
-<app-nav></app-nav>
+<app-nav *ngIf="goToHome()"></app-nav>
+<app-authentication *ngIf="!goToHome()"></app-authentication>
 <app-footer></app-footer>

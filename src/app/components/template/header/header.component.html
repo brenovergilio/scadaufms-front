@@ -12,4 +12,12 @@
       {{ title }}
     </a>
   </span>
+  <span *ngIf="this.authService.isAuthenticated()" class="logout">
+    <a (click)="logout()">
+      <i class="material-icons">
+        logout
+      </i>
+      Sair
+    </a>
+  </span>
 </mat-toolbar>

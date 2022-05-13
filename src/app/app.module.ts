@@ -39,6 +39,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { DateRangeComponent } from './components/date-range/date-range.component';
 import { LineChartComponent } from './components/charts/line-chart/line-chart.component';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 
 
@@ -61,7 +62,8 @@ registerLocaleData(localePt);
     TabsComponent,
     DateRangeComponent,
     LineChartComponent,
-    BarChartComponent
+    BarChartComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
