@@ -1,14 +1,16 @@
-<mat-card class="card-login">
-  <mat-card-title>Realizar Login</mat-card-title>
-  <form>
-    <mat-form-field>
-      <input matInput placeholder="Nome de usuário" [(ngModel)]="authLogin.username" name="username">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="password" placeholder="Senha" [(ngModel)]="authLogin.password" name="password">
-    </mat-form-field>
-  </form>
-  <button mat-raised-button (keyup.enter)="login()" (click)="login()" color="primary">
-    Entrar
-  </button>
-</mat-card>
+<div class="wrapper">
+  <mat-card class="card-login">
+    <mat-card-title>Realizar Login</mat-card-title>
+    <form (keyup.enter)="login()">
+      <mat-form-field>
+        <input matInput placeholder="Nome de usuário" [(ngModel)]="authLogin.username" name="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Senha" [(ngModel)]="authLogin.password" name="password">
+      </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="login()" color="primary">
+      Entrar
+    </button>
+  </mat-card>
+</div><

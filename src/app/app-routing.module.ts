@@ -11,6 +11,7 @@ import { MedidorDeleteComponent } from './components/medidor/medidor-delete/medi
 import { TabsComponent } from './components/tabs/tabs.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { LoginScreenGuard } from './guards/login-screen.guard';
 
 const routes: Routes = [
   {
@@ -55,7 +56,8 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: AuthenticationComponent
+    component: AuthenticationComponent,
+    canActivate: [LoginScreenGuard]
   }
 ];
 

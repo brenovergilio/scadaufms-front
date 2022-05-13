@@ -7,6 +7,9 @@
     <mat-form-field>
       <input matInput placeholder="Nome" [(ngModel)]="medidor.name" name="name">
     </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Porta" [(ngModel)]="medidor.port" name="port">
+    </mat-form-field>
   </form>
   <button mat-raised-button (click)="createMedidor()" color="primary">
     Salvar

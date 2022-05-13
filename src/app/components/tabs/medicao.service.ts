@@ -4,6 +4,7 @@ import { DateRange } from '../date-range/date-range.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Medicao } from './medicao.model';
+import { AuthService } from '../authentication/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,13 @@ export class MedicaoService {
 
   BASE_URL: string = 'http://localhost:3000/medicoes';
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 
   readTensoes(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
     const url = `${this.BASE_URL}/tensoes/${measurerID}`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
-    return this.http.get<Array<Medicao>>(url, { params: params }).pipe(
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -28,7 +29,7 @@ export class MedicaoService {
     const url = `${this.BASE_URL}/correntes/${measurerID}`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
-    return this.http.get<Array<Medicao>>(url, { params: params }).pipe(
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -38,7 +39,7 @@ export class MedicaoService {
     const url = `${this.BASE_URL}/potencias-ativas/${measurerID}`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
-    return this.http.get<Array<Medicao>>(url, { params: params }).pipe(
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -48,7 +49,7 @@ export class MedicaoService {
     const url = `${this.BASE_URL}/potencias-reativas/${measurerID}`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
-    return this.http.get<Array<Medicao>>(url, { params: params }).pipe(
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -58,7 +59,7 @@ export class MedicaoService {
     const url = `${this.BASE_URL}/potencias-aparentes/${measurerID}`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
-    return this.http.get<Array<Medicao>>(url, { params: params }).pipe(
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -68,7 +69,7 @@ export class MedicaoService {
     const url = `${this.BASE_URL}/fatores-potencia/${measurerID}`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
-    return this.http.get<Array<Medicao>>(url, { params: params }).pipe(
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );

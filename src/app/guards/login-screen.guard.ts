@@ -6,23 +6,21 @@ import { AuthService } from '../components/authentication/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoginScreenGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-    const isAuthenticated = this.authService.isAuthenticated();
+      const isAuthenticated = this.authService.isAuthenticated();
 
-    if(!isAuthenticated) {
-      this.router.navigate(['/login']);
-      return false;
-    }  
-
-    if(isAuthenticated && route.url.toString() === 'login') return false;
-
-    return true;
+      if(isAuthenticated) {
+        this.router.navigate(['/']);
+        return false;
+      }  
+   
+      return true;
   }
+  
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
@@ -41,5 +41,12 @@ export class AuthService {
   handleError(error: any): Observable<any> {
     this.showMessage(error.error.message, true);
     return EMPTY;
+  }
+
+  setAuthenticationBearerJWT(): HttpHeaders {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${window.localStorage.getItem('jwtToken')}`
+    });
   }
 }

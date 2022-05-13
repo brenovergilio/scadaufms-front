@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
+import { AuthService } from '../authentication/auth.service';
 import { MedidorMD30 } from './medidor.model';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class MedidorService {
 
   BASE_URL: string = 'http://localhost:3000/medidores'
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 
   showMessage(message: string, isError: boolean = false): void {
     this.snackBar.open(message, 'X', {
@@ -23,14 +24,14 @@ export class MedidorService {
   }
 
   create(medidor: MedidorMD30): Observable<MedidorMD30> {
-    return this.http.post<MedidorMD30>(this.BASE_URL, medidor).pipe(
+    return this.http.post<MedidorMD30>(this.BASE_URL, medidor, { headers: this.authService.setAuthenticationBearerJWT() } ).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
   }
 
   read(): Observable<Array<MedidorMD30>> {
-    return this.http.get<Array<MedidorMD30>>(this.BASE_URL).pipe(
+    return this.http.get<Array<MedidorMD30>>(this.BASE_URL, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -38,7 +39,7 @@ export class MedidorService {
 
   readByID(id: number): Observable<MedidorMD30> {
     const url = `${this.BASE_URL}/${id}`;
-    return this.http.get<MedidorMD30>(url).pipe(
+    return this.http.get<MedidorMD30>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
@@ -46,7 +47,7 @@ export class MedidorService {
 
   delete(id: number): Observable<MedidorMD30> {
     const url = `${this.BASE_URL}/${id}`;
-    return this.http.delete<MedidorMD30>(url).pipe(
+    return this.http.delete<MedidorMD30>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
