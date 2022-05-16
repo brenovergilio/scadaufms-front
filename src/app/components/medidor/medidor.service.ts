@@ -37,7 +37,7 @@ export class MedidorService {
     );
   }
 
-  readByID(id: number): Observable<MedidorMD30> {
+  readByID(id: string): Observable<MedidorMD30> {
     const url = `${this.BASE_URL}/${id}`;
     return this.http.get<MedidorMD30>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
@@ -45,7 +45,7 @@ export class MedidorService {
     );
   }
 
-  delete(id: number): Observable<MedidorMD30> {
+  delete(id: string): Observable<MedidorMD30> {
     const url = `${this.BASE_URL}/${id}`;
     return this.http.delete<MedidorMD30>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 

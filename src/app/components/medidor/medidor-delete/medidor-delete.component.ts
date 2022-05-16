@@ -15,7 +15,7 @@ export class MedidorDeleteComponent implements OnInit {
   constructor(private medidorService: MedidorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.medidorService.readByID(id).subscribe(medidor => this.medidor = medidor);
   }
 

@@ -1,5 +1,5 @@
 export interface Feriado {
-  id?: number;
+  id?: string;
   name: string;
   day: string;
 }

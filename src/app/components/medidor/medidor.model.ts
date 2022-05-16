@@ -1,5 +1,5 @@
 export interface MedidorMD30 {
-  id?: number;
+  id?: string;
   ip: string;
   name: string;
   port: number | null;

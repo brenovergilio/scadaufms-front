@@ -37,7 +37,7 @@ export class FeriadoService {
     );
   }
 
-  readByID(id: number): Observable<Feriado> {
+  readByID(id: string): Observable<Feriado> {
     const url = `${this.BASE_URL}/${id}`;
     return this.http.get<Feriado>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
@@ -45,7 +45,7 @@ export class FeriadoService {
     );
   }
 
-  delete(id: number): Observable<Feriado> {
+  delete(id: string): Observable<Feriado> {
     const url = `${this.BASE_URL}/${id}`;
     return this.http.delete<Feriado>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 

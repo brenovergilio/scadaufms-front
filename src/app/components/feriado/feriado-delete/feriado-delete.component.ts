@@ -15,7 +15,7 @@ export class FeriadoDeleteComponent implements OnInit {
   constructor(private feriadoService: FeriadoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.feriadoService.readByID(id).subscribe(feriado => this.feriado = feriado);
   }
 
