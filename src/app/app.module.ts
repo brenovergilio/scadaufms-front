@@ -40,6 +40,7 @@ import { DateRangeComponent } from './components/date-range/date-range.component
 import { LineChartComponent } from './components/charts/line-chart/line-chart.component';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+//import { MultiLineChartComponent } from './components/charts/multi-line-chart/multi-line-chart.component';
 
 
 
@@ -63,7 +64,8 @@ registerLocaleData(localePt);
     DateRangeComponent,
     LineChartComponent,
     BarChartComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    //MultiLineChartComponent
   ],
   imports: [
     BrowserModule,

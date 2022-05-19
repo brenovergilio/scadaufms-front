@@ -33,38 +33,42 @@ export class BarChartComponent implements OnInit, OnChanges {
   roundEdges: boolean = false;
   
   constructor() { }
-
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   ngOnChanges(): void {
     this.checkInputsArray();
     this.results = [];
-    
     if(this.inputsIsLoaded)
       this.convertInputToAcceptedChartDataFormat()
   }
 
   checkInputsArray(): void {
-    if(this.inputs !== undefined && this.inputs.length !== 0)
-      this.inputsIsLoaded = true;
-    else
-      this.inputsIsLoaded = false;
+    this.inputsIsLoaded = this.inputs !== undefined && this.inputs.length !== 0;
   }
 
   convertInputToAcceptedChartDataFormat(): void {
-    for(let i = 0; i < this.inputs.length; i++) {
-      let series: Array<Series> = new Array<Series>();
-      for(const serie of Object.entries(this.inputs[i].values)) {
+    const valuesKeys = Object.keys(this.inputs[0].values); 
+    let count = 0;
+
+    while(count < valuesKeys.length) {
+      const series: Array<Series> = new Array<Series>();
+      for(let input of this.inputs) {
+        const values = Object.entries(input.values); 
+        
         series.push({
-          name: serie[0],
-          value: Number(serie[1])
-        })
+          value: Number(values[count][1]),
+          name: input.timestamp
+        });
       }
+
       this.results.push({
-        name: this.inputs[i].timestamp,
+        name: valuesKeys[count],
         series: series
       });
-    }
+
+      count++;
+    }    
   }
 }

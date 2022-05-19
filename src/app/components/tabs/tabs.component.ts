@@ -56,6 +56,8 @@ export class TabsComponent implements OnInit {
         this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotencia(this.currentMeasurerID,  this.dateRange));
         break;
     }
+
+    console.log(this.medicoes);
   }
 
   tabDefiner(event: MatTabChangeEvent): void {

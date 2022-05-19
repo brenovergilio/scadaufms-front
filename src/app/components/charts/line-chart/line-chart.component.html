@@ -1,4 +1,4 @@
-<ng-container *ngIf="inputsIsLoaded">
+<div class="chart" *ngIf="inputsIsLoaded">
   <ngx-charts-line-chart
   [view]="view"
   [results]="results"
@@ -12,12 +12,13 @@
   [showYAxisLabel]="showYAxisLabel"
   [xAxisLabel]="xAxisLabel"
   [yAxisLabel]="yAxisLabel"
+  [xAxisTickFormatting]='formatDate'
   [legendTitle]="legendTitle"
   [legendPosition]="legendPosition"
   [animations]="animations"
   [showGridLines]="showGridLines"
   [tooltipDisabled]="tooltipDisabled">  
   </ngx-charts-line-chart>
-</ng-container>
+</div>
 
 <p *ngIf="!inputsIsLoaded">Não há medições para esse período</p>

@@ -17,7 +17,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   schemeType: string = "ordinal";
   gradient: boolean = false;
   xAxis: boolean = true;
-  yAxis: boolean = false;
+  yAxis: boolean = true;
   legendTitle: string = "Medições";
   legendPosition: LegendPosition = LegendPosition.Right;
   legend: boolean = true;
@@ -44,27 +44,55 @@ export class LineChartComponent implements OnInit, OnChanges {
   }
 
   checkInputsArray(): void {
-    if(this.inputs !== undefined && this.inputs.length !== 0)
-      this.inputsIsLoaded = true;
-    else
-      this.inputsIsLoaded = false;
+    this.inputsIsLoaded = this.inputs !== undefined && this.inputs.length !== 0;
   }
 
   convertInputToAcceptedChartDataFormat(): void {
-    for(let i = 0; i < this.inputs.length; i++) {
-      let series: Array<Series> = new Array<Series>();
-      for(const serie of Object.entries(this.inputs[i].values)) {
+    const valuesKeys = Object.keys(this.inputs[0].values); 
+    let count = 0;
+
+    while(count < valuesKeys.length) {
+      const series: Array<Series> = new Array<Series>();
+      for(let input of this.inputs) {
+        const values = Object.entries(input.values); 
+        
         series.push({
-          name: this.inputs[i].timestamp,
-          value: Number(serie[1])
-        })
-        this.results.push({
-          name: serie[0],
-          series: series
+          value: Number(values[count][1]),
+          name: new Date(input.timestamp)
         });
       }
-    }
-    
-    console.log(this.results)
+
+      this.results.push({
+        name: valuesKeys[count],
+        series: series
+      });
+      count++;
+    }    
+  }
+
+  formatDate(value: Date): string {
+    // var locale = 'pt-BR';
+    // let formatOptions: Intl.DateTimeFormatOptions;
+    // if (value.getSeconds() !== 0) {
+    //   formatOptions = { second: '2-digit' };
+    // } else if (value.getMinutes() !== 0) {
+    //   formatOptions = { hour: '2-digit', minute: '2-digit' };
+    // } else if (value.getHours() !== 0) {
+    //   formatOptions = { hour: '2-digit' };
+    // } else if (value.getDate() !== 1) {
+    //   formatOptions = value.getDay() === 0 ? { month: 'short', day: '2-digit' } : { weekday: 'short', day: '2-digit' };
+    // } else if (value.getMonth() !== 0) {
+    //   formatOptions = { month: 'long' };
+    // } else {
+    //   formatOptions = { year: 'numeric' };
+    // }
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: false
+    };
+    const test = new Intl.DateTimeFormat("pt-BR", options).format(value); 
+    console.log(test);
+    return test;
   }
 }
