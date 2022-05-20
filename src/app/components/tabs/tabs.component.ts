@@ -16,6 +16,7 @@ export class TabsComponent implements OnInit {
 
   currentMeasurerID: string;
   dateRange: DateRange;
+  isMoreThanOneDay: boolean;
   medicoes: Array<Medicao>;
   currentTab: number = 0;
 
@@ -31,6 +32,8 @@ export class TabsComponent implements OnInit {
   }
 
   async readMedicao(type: TipoMedicao): Promise<void> {
+    this.isMoreThanOneDay = this.dateRange.initialDate != this.dateRange.finalDate;
+    console.log(this.isMoreThanOneDay)
     switch (type) {
       case TipoMedicao.Tensoes: 
         this.medicoes = await lastValueFrom(this.medicaoService.readTensoes(this.currentMeasurerID,  this.dateRange));
@@ -57,7 +60,6 @@ export class TabsComponent implements OnInit {
         break;
     }
 
-    console.log(this.medicoes);
   }
 
   tabDefiner(event: MatTabChangeEvent): void {

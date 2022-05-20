@@ -23,10 +23,9 @@ export class DateRangeComponent implements OnInit {
 
   setDefaultDatePickerToToday(): string {
     const date = new Date();
-    const currentYear = date.getUTCFullYear();
-    const currentMonth = date.getUTCMonth() + 1;
-    const currentDay = date.getUTCDate();
-
+    const currentYear = date.getFullYear();
+    const currentMonth = date.getMonth() + 1;
+    const currentDay = date.getDate();
 
     // Need to match yyyy-MM-dd pattern
 
@@ -36,7 +35,7 @@ export class DateRangeComponent implements OnInit {
     today += '-';
 
     currentDay < 10 ? today += "0"+ currentDay: today += currentDay.toString();
-
+    
     return today;
   }
 

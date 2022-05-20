@@ -11,12 +11,12 @@ import { AuthService } from '../authentication/auth.service';
 })
 export class MedicaoService {
 
-  BASE_URL: string = 'http://localhost:3000/medicoes';
+  BASE_URL: string = 'http://localhost:3000';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 
   readTensoes(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
-    const url = `${this.BASE_URL}/tensoes/${measurerID}`;
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/tensoes`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
     return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
@@ -26,7 +26,7 @@ export class MedicaoService {
   }
 
   readCorrentes(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
-    const url = `${this.BASE_URL}/correntes/${measurerID}`;
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/correntes`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
     return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
@@ -36,7 +36,7 @@ export class MedicaoService {
   }
 
   readPotenciasAtivas(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
-    const url = `${this.BASE_URL}/potencias-ativas/${measurerID}`;
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/potencias-ativas`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
     return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
@@ -46,7 +46,7 @@ export class MedicaoService {
   }
 
   readPotenciasReativas(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
-    const url = `${this.BASE_URL}/potencias-reativas/${measurerID}`;
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/potencias-reativas`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
     return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
@@ -56,7 +56,7 @@ export class MedicaoService {
   }
 
   readPotenciasAparentes(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
-    const url = `${this.BASE_URL}/potencias-aparentes/${measurerID}`;
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/potencias-aparentes`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
     return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
@@ -66,7 +66,7 @@ export class MedicaoService {
   }
 
   readFatoresPotencia(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
-    const url = `${this.BASE_URL}/fatores-potencia/${measurerID}`;
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/fatores-potencia`;
     const params = this.generateHttpDateRangeParams(dateRange);
 
     return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
