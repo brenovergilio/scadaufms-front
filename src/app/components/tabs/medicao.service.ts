@@ -75,6 +75,46 @@ export class MedicaoService {
     );
   }
 
+  readConsumosAtivos(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/consumos-ativos`;
+    const params = this.generateHttpDateRangeParams(dateRange);
+
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
+      map(obj => obj), 
+      catchError(error => this.handleError(error))
+    );
+  }
+
+  readConsumosReativos(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/consumos-reativos`;
+    const params = this.generateHttpDateRangeParams(dateRange);
+
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
+      map(obj => obj), 
+      catchError(error => this.handleError(error))
+    );
+  }
+
+  readDemandasAtivas(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/demandas-ativas`;
+    const params = this.generateHttpDateRangeParams(dateRange);
+
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
+      map(obj => obj), 
+      catchError(error => this.handleError(error))
+    );
+  }
+
+  readDemandasReativas(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/demandas-reativas`;
+    const params = this.generateHttpDateRangeParams(dateRange);
+
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
+      map(obj => obj), 
+      catchError(error => this.handleError(error))
+    );
+  }
+
   showMessage(message: string, isError: boolean = false): void {
     this.snackBar.open(message, 'X', {
       duration: 3000,

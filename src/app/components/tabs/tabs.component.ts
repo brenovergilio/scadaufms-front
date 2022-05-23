@@ -33,7 +33,7 @@ export class TabsComponent implements OnInit {
 
   async readMedicao(type: TipoMedicao): Promise<void> {
     this.isMoreThanOneDay = this.dateRange.initialDate != this.dateRange.finalDate;
-    console.log(this.isMoreThanOneDay)
+
     switch (type) {
       case TipoMedicao.Tensoes: 
         this.medicoes = await lastValueFrom(this.medicaoService.readTensoes(this.currentMeasurerID,  this.dateRange));
@@ -57,6 +57,22 @@ export class TabsComponent implements OnInit {
 
       case TipoMedicao.Fatores_Potencia: 
         this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotencia(this.currentMeasurerID,  this.dateRange));
+        break;
+      
+      case TipoMedicao.Consumos_Ativos: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readConsumosAtivos(this.currentMeasurerID,  this.dateRange));
+        break;
+
+      case TipoMedicao.Consumos_Reativos: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readConsumosReativos(this.currentMeasurerID,  this.dateRange));
+        break;
+
+      case TipoMedicao.Demandas_Ativas: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readDemandasAtivas(this.currentMeasurerID,  this.dateRange));
+        break;
+
+      case TipoMedicao.Demandas_Reativas: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readDemandasReativas(this.currentMeasurerID,  this.dateRange));
         break;
     }
 
