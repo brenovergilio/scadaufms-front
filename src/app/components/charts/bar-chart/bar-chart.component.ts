@@ -33,15 +33,15 @@ export class BarChartComponent implements OnInit, OnChanges {
   roundEdges: boolean = false;
   
   constructor() { }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   ngOnChanges(): void {
     this.checkInputsArray();
     this.results = [];
     if(this.inputsIsLoaded)
-      this.convertInputToAcceptedChartDataFormat()
+      this.convertInputToAcceptedChartDataFormat();
   }
 
   checkInputsArray(): void {
@@ -56,7 +56,7 @@ export class BarChartComponent implements OnInit, OnChanges {
       const series: Array<Series> = new Array<Series>();
       for(let input of this.inputs) {
         const values = Object.entries(input.values); 
-        
+
         series.push({
           value: Number(values[count][1]),
           name: input.timestamp
@@ -67,8 +67,14 @@ export class BarChartComponent implements OnInit, OnChanges {
         name: valuesKeys[count],
         series: series
       });
-
+      console.log(this.results)
       count++;
     }    
+  }
+
+  formatXTicks(value: string): string {
+    const pieces = value.split("/");
+    const time = pieces[2].split(" ");
+    return `${pieces[0]}/${pieces[1]} ${time[1]}`;
   }
 }

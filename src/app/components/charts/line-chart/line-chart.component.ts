@@ -11,7 +11,6 @@ import { AcceptedFormat, Series } from '../accepted-format.model';
 })
 export class LineChartComponent implements OnInit, OnChanges {
 
-  @Input() isMoreThanOneDay: boolean;
   @Input() inputs: Medicao[];
   results: AcceptedFormat[];  
   inputsIsLoaded: boolean = false;
@@ -73,15 +72,9 @@ export class LineChartComponent implements OnInit, OnChanges {
     }    
   }
 
-  binder(fn: Function): Function {
-    return (value: string) => {
-      return fn.apply(this, value);
-    }
-  }
-
   formatXTicks(value: string): string {
-    const pieces = value.split(" ");
-    if(this.isMoreThanOneDay) return pieces[0];
-    return pieces[1];
+    const pieces = value.split("/");
+    const time = pieces[2].split(" ");
+    return `${pieces[0]}/${pieces[1]} ${time[1]}`;
   }
 }

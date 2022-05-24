@@ -1,16 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { AuthService } from '../authentication/auth.service';
-import { Feriado } from './feriado.model';
+import { Alarme } from './alarme.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FeriadoService {
+export class AlarmeService {
 
-  BASE_URL: string = 'http://localhost:3000/feriados'
+  BASE_URL: string = 'http://localhost:3000/medidores'
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 
@@ -22,32 +22,26 @@ export class FeriadoService {
       panelClass: isError ? ['msg-error'] : ['msg-success']
     });
   }
-
-  create(feriado: Feriado): Observable<Feriado> {
-    return this.http.post<Feriado>(this.BASE_URL, feriado, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
+  
+  read(measurerID: string): Observable<Array<Alarme>> {
+    const url = `${this.BASE_URL}/${measurerID}/alarmes`;
+    return this.http.get<Array<Alarme>>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
   }
 
-  read(): Observable<Array<Feriado>> {
-    return this.http.get<Array<Feriado>>(this.BASE_URL, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
-      map(obj => obj), 
-      catchError(error => this.handleError(error))
-    );
-  }
-
-  readByID(id: string): Observable<Feriado> {
+  readByID(id: string): Observable<Alarme> {
     const url = `${this.BASE_URL}/${id}`;
-    return this.http.get<Feriado>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
+    return this.http.get<Alarme>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );
   }
 
-  delete(id: string): Observable<Feriado> {
-    const url = `${this.BASE_URL}/${id}`;
-    return this.http.delete<Feriado>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
+  delete(id: string): Observable<Alarme> {
+    const url = `${this.BASE_URL}/alarmes/${id}`;
+    return this.http.delete<Alarme>(url, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 
       catchError(error => this.handleError(error))
     );

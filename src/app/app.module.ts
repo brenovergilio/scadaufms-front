@@ -40,9 +40,8 @@ import { DateRangeComponent } from './components/date-range/date-range.component
 import { LineChartComponent } from './components/charts/line-chart/line-chart.component';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
-//import { MultiLineChartComponent } from './components/charts/multi-line-chart/multi-line-chart.component';
-
-
+import { AlarmeReadComponent } from './components/alarme/alarme-read/alarme-read.component';
+import { AlarmesCrudComponent } from './views/alarmes-crud/alarmes-crud.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -65,7 +64,8 @@ registerLocaleData(localePt);
     LineChartComponent,
     BarChartComponent,
     AuthenticationComponent,
-    //MultiLineChartComponent
+    AlarmeReadComponent,
+    AlarmesCrudComponent
   ],
   imports: [
     BrowserModule,

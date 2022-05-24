@@ -12,6 +12,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { LoginScreenGuard } from './guards/login-screen.guard';
+import { AlarmesCrudComponent } from './views/alarmes-crud/alarmes-crud.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,16 @@ const routes: Routes = [
     component: FeriadoDeleteComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: "medidores/:id/alarmes",
+    component: AlarmesCrudComponent,
+    canActivate: [AuthGuard]
+  },
+  // {
+  //   path: "alarmes/delete/:id",
+  //   component: FeriadoDeleteComponent,
+  //   canActivate: [AuthGuard]
+  // },
   {
     path: "login",
     component: AuthenticationComponent,

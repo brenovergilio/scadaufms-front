@@ -11,7 +11,7 @@ import { AuthService } from '../authentication/auth.service';
 })
 export class MedicaoService {
 
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:3000/medidores';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 
