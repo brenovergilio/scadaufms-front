@@ -60,11 +60,6 @@ const routes: Routes = [
     component: AlarmesCrudComponent,
     canActivate: [AuthGuard]
   },
-  // {
-  //   path: "alarmes/delete/:id",
-  //   component: FeriadoDeleteComponent,
-  //   canActivate: [AuthGuard]
-  // },
   {
     path: "login",
     component: AuthenticationComponent,
