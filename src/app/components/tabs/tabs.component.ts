@@ -48,14 +48,6 @@ export class TabsComponent implements OnInit {
       case TipoMedicao.Potencias_Reativas: 
         this.medicoes = await lastValueFrom(this.medicaoService.readPotenciasReativas(this.currentMeasurerID,  this.dateRange));
         break;
-
-      case TipoMedicao.Potencias_Aparentes: 
-        this.medicoes = await lastValueFrom(this.medicaoService.readPotenciasAparentes(this.currentMeasurerID,  this.dateRange));
-        break;
-
-      case TipoMedicao.Fatores_Potencia: 
-        this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotencia(this.currentMeasurerID,  this.dateRange));
-        break;
       
       case TipoMedicao.Consumos_Ativos: 
         this.medicoes = await lastValueFrom(this.medicaoService.readConsumosAtivos(this.currentMeasurerID,  this.dateRange));
