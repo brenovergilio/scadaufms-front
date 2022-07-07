@@ -4,7 +4,6 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { MedidorMD30 } from '../medidor.model';
-import { MedidorService } from '../medidor.service';
 import { Injectable } from '@angular/core';
 
 /**
@@ -71,7 +70,6 @@ export class MedidorReadDataSource extends DataSource<MedidorMD30> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'id': return compare(a.id, b.id, isAsc)
         case 'name': return compare(a.name, b.name, isAsc);
         case 'ip': return compare(a.ip, b.ip, isAsc);
         default: return 0;

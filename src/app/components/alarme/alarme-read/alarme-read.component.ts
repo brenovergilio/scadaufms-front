@@ -19,7 +19,7 @@ export class AlarmeReadComponent implements AfterViewInit {
   dataSource: AlarmeReadDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'message', 'timestamp', 'actions'];
+  displayedColumns = ['message', 'timestamp', 'actions'];
 
   constructor(private alarmeService: AlarmeService, private route: ActivatedRoute) {
     const medidorID = this.route.snapshot.paramMap.get('id');

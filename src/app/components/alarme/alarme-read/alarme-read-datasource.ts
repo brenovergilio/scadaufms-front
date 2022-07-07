@@ -70,7 +70,6 @@ export class AlarmeReadDataSource extends DataSource<Alarme> {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
         case 'timestamp': return compare(a.timestamp, b.timestamp, isAsc);
-        case 'id': return compare(a.id , b.id, isAsc);
         default: return 0;
       }
     });

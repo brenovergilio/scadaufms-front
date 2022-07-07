@@ -18,7 +18,7 @@ export class FeriadoReadComponent implements AfterViewInit {
   dataSource: FeriadoReadDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'day', 'actions'];
+  displayedColumns = ['name', 'day', 'actions'];
 
   constructor(private feriadoService: FeriadoService) {
     this.dataSource = new FeriadoReadDataSource();
