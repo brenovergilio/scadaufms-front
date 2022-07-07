@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MedidorMD30 } from '../medidor.model';
 import { MedidorService } from '../medidor.service';
+import { formatIP } from '../helpers';
 
 @Component({
   selector: 'app-medidor-create',
@@ -13,8 +14,15 @@ export class MedidorCreateComponent implements OnInit {
   medidor: MedidorMD30 = {
     ip: '',
     name: '',
-    port: null
+    port: null,
+    rush: {
+      hour: 17,
+      minute: 30,
+      interval: 3
+    }
   } 
+
+  initialRushHour: string;
 
   constructor(private medidorService: MedidorService, private router: Router) { }
 
@@ -22,8 +30,10 @@ export class MedidorCreateComponent implements OnInit {
   }
 
   createMedidor(): void {
-    this.medidor.ip = this.formatIP(this.medidor.ip);
-    this.medidorService.create(this.medidor).subscribe(() => {
+    this.medidor.ip = formatIP(this.medidor.ip);
+    this.updateInitialRushHourBeforeSendingRequest();
+    const medidorForRequest = { id: this.medidor.id, ip: this.medidor.ip, name: this.medidor.name, port: Number(this.medidor.port), rushHour: this.medidor.rush.hour, rushMinute: this.medidor.rush.minute, rushInterval: this.medidor.rush.interval };
+    this.medidorService.create(medidorForRequest).subscribe(() => {
       this.medidorService.showMessage("Medidor adicionado!");
       this.router.navigate(['/medidores']);
     });
@@ -33,33 +43,15 @@ export class MedidorCreateComponent implements OnInit {
     this.router.navigate(['/medidores']);
   }
 
-  /* Receives an IPv4 and format it to a pattern accepted by the operational system
-    e.g.,'   000.230.090.001 ' input returns '0.230.90.1'
-  */
+  setInitialRushHour(): void {
+    this.initialRushHour = `${this.medidor.rush.hour}:${this.medidor.rush.minute}`;
+  }
 
-  formatIP(ip: string): string {
-    ip = ip.trim();
-    const pieces = ip.split('.');
-    let formated_ip = '';
-
-    for(const piece of pieces) {
-        if(piece.length === 1)
-            formated_ip = formated_ip.concat(piece[0])
-        else if(piece.length === 2)
-            if(piece[0] !== '0')
-                formated_ip = formated_ip.concat(piece[0], piece[1])
-            else
-                formated_ip = formated_ip.concat(piece[1])
-        else
-            if(piece[0] !== '0')
-                formated_ip = formated_ip.concat(piece[0], piece[1], piece[2])
-            else if(piece[1] !== '0')
-                formated_ip = formated_ip.concat(piece[1], piece[2])
-            else
-                formated_ip = formated_ip.concat(piece[2])
-        
-        formated_ip = formated_ip.concat('.')        
+  updateInitialRushHourBeforeSendingRequest(): void {
+    if(this.initialRushHour) {
+      const piecesOfInitialRushHour = this.initialRushHour.split(':');
+      this.medidor.rush.hour = Number.parseInt(piecesOfInitialRushHour[0]);
+      this.medidor.rush.minute = Number.parseInt(piecesOfInitialRushHour[1]);
     }
-    return formated_ip.slice(0, formated_ip.length-1)
   }
 }

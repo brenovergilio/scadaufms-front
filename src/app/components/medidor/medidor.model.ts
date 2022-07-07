@@ -3,7 +3,11 @@ export interface MedidorMD30 {
   ip: string;
   name: string;
   port: number | null;
-  rush_hour?: number;
-  rush_minute?: number;
-  rush_interval?: number;
+  rush?: Rush;
+}
+
+export interface Rush {
+  hour?: number;
+  minute?: number;
+  interval?: number;
 }

@@ -30,6 +30,14 @@ export class MedidorService {
     );
   }
 
+  update(medidor: MedidorMD30): Observable<MedidorMD30> {
+    const url = `${this.BASE_URL}/${medidor.id}`;
+    return this.http.put<MedidorMD30>(url, medidor, { headers: this.authService.setAuthenticationBearerJWT() } ).pipe(
+      map(obj => obj), 
+      catchError(error => this.handleError(error))
+    );
+  }
+
   read(): Observable<Array<MedidorMD30>> {
     return this.http.get<Array<MedidorMD30>>(this.BASE_URL, { headers: this.authService.setAuthenticationBearerJWT() }).pipe(
       map(obj => obj), 

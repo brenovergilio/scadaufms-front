@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>Adicionar Medidor MD30</mat-card-title>
+  <mat-card-title>Atualizar Medidor MD30</mat-card-title>
   <form>
     <mat-form-field>
       <input matInput placeholder="IP" [(ngModel)]="medidor.ip" name="ip">
@@ -17,10 +17,10 @@
       <mat-form-field>
         <input matInput placeholder="Intervalo (em horas)" [(ngModel)]="medidor.rush.interval" ngRequired name="intervalo-pico">
       </mat-form-field>
-    </div>  
+    </div>
   </form>
-  <button mat-raised-button (click)="createMedidor()" color="primary">
-    Salvar
+  <button mat-raised-button (click)="updateMedidor()" color="primary">
+    Atualizar
   </button>
 
   <button mat-raised-button (click)="cancel()">

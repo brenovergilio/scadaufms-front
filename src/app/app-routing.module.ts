@@ -13,6 +13,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { LoginScreenGuard } from './guards/login-screen.guard';
 import { AlarmesCrudComponent } from './views/alarmes-crud/alarmes-crud.component';
+import { MedidorUpdateComponent } from './components/medidor/medidor-update/medidor-update.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: "medidores/delete/:id",
     component: MedidorDeleteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "medidores/update/:id",
+    component: MedidorUpdateComponent,
     canActivate: [AuthGuard]
   },
   {

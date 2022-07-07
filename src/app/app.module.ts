@@ -42,6 +42,7 @@ import { BarChartComponent } from './components/charts/bar-chart/bar-chart.compo
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AlarmeReadComponent } from './components/alarme/alarme-read/alarme-read.component';
 import { AlarmesCrudComponent } from './views/alarmes-crud/alarmes-crud.component';
+import { MedidorUpdateComponent } from './components/medidor/medidor-update/medidor-update.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -65,7 +66,8 @@ registerLocaleData(localePt);
     BarChartComponent,
     AuthenticationComponent,
     AlarmeReadComponent,
-    AlarmesCrudComponent
+    AlarmesCrudComponent,
+    MedidorUpdateComponent
   ],
   imports: [
     BrowserModule,
