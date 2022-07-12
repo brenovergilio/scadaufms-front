@@ -14,7 +14,7 @@ export class MedidorCreateComponent implements OnInit {
   medidor: MedidorMD30 = {
     ip: '',
     name: '',
-    port: null,
+    port: 1001,
     rush: {
       hour: 17,
       minute: 30,
@@ -27,6 +27,7 @@ export class MedidorCreateComponent implements OnInit {
   constructor(private medidorService: MedidorService, private router: Router) { }
 
   ngOnInit(): void {
+    this.setInitialRushHour()
   }
 
   createMedidor(): void {

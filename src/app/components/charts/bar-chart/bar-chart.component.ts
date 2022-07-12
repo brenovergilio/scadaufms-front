@@ -67,14 +67,13 @@ export class BarChartComponent implements OnInit, OnChanges {
         name: valuesKeys[count],
         series: series
       });
-      console.log(this.results)
       count++;
     }    
   }
 
-  formatXTicks(value: string): string {
-    const pieces = value.split("/");
-    const time = pieces[2].split(" ");
-    return `${pieces[0]}/${pieces[1]} ${time[1]}`;
-  }
+  // formatXTicks(value: string): string {
+  //   const pieces = value.split("/");
+  //   const time = pieces[2].split(" ");
+  //   return `${pieces[0]}/${pieces[1]} ${time[1]}`;
+  // }
 }

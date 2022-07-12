@@ -32,17 +32,17 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "medidores/delete/:id",
+    path: "medidores/:id/delete",
     component: MedidorDeleteComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: "medidores/update/:id",
+    path: "medidores/:id/update",
     component: MedidorUpdateComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: "medidores/medicoes/:id",
+    path: "medidores/:id/medicoes",
     component: TabsComponent,
     canActivate: [AuthGuard]
   },
@@ -57,7 +57,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "feriados/delete/:id",
+    path: "feriados/:id/delete",
     component: FeriadoDeleteComponent,
     canActivate: [AuthGuard]
   },

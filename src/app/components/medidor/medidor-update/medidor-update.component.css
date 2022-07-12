@@ -1,3 +1,7 @@
-.input-rush {
-  display: flex;
+.input-rush > mat-form-field {
+  padding-right: 20px;
+}
+
+button {
+  margin-right: 20px;
 }
