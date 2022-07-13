@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>Deletar Usuário</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Username" [value]="user.username" name="ip" disabled>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="deleteUser()" color="warn">
+    Deletar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

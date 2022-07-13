@@ -5,7 +5,7 @@ import { lastValueFrom } from 'rxjs';
 import { DateRange } from '../date-range/date-range.model';
 import { Medicao } from './medicao.model';
 import { MedicaoService } from './medicao.service';
-import { TipoMedicao } from './tipo-medicao.enum';
+import { TipoMedicao } from './medicao.model';
 
 @Component({
   selector: 'app-tabs',

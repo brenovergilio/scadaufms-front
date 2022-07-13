@@ -14,6 +14,9 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { LoginScreenGuard } from './guards/login-screen.guard';
 import { AlarmesCrudComponent } from './views/alarmes-crud/alarmes-crud.component';
 import { MedidorUpdateComponent } from './components/medidor/medidor-update/medidor-update.component';
+import { UsersCrudComponent } from './views/users-crud/users-crud.component';
+import { UserCreateComponent } from './components/users/user-create/user-create.component';
+import { UserDeleteComponent } from './components/users/user-delete/user-delete.component';
 
 const routes: Routes = [
   {
@@ -67,10 +70,25 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: "users",
+    component: UsersCrudComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "users/create",
+    component: UserCreateComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "users/:id/delete",
+    component: UserDeleteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: "login",
     component: AuthenticationComponent,
     canActivate: [LoginScreenGuard]
-  }
+  },
 ];
 
 @NgModule({

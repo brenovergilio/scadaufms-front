@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Adicionar Usuário</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Username" [(ngModel)]="user.username" name="ip">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Senha" type="password" [(ngModel)]="user.password" name="name">
+    </mat-form-field>
+    <label id="radio-group-label">Selecione o tipo do usuário:</label>
+    <mat-radio-group aria-labelledby="radio-group-label" [(ngModel)]="user.type" name="type">
+      <mat-radio-button value="2">Visitante</mat-radio-button>
+      <mat-radio-button value="1">Administrador</mat-radio-button>
+    </mat-radio-group>
+  </form>
+  <button mat-raised-button (click)="createUser()" color="primary">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

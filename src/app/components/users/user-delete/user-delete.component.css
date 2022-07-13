@@ -1,0 +1,11 @@
+button {
+  margin-right: 20px;
+}
+
+mat-radio-group {
+  padding: 10px 0px;
+}
+
+mat-radio-button {
+  padding-right: 10px;
+}
