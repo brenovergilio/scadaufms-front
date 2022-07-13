@@ -12,5 +12,6 @@ export enum TipoMedicao {
   Consumos_Ativos = 4,
   Consumos_Reativos = 5,
   Demandas_Ativas = 6,
-  Demandas_Reativas = 7
+  Demandas_Reativas = 7,
+  Tabela = 8
 }

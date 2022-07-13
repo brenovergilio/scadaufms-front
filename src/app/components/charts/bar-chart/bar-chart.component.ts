@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { LegendPosition } from '@swimlane/ngx-charts';
 import { Medicao } from '../../tabs/medicao.model';
-import { AcceptedFormat, Series } from '../accepted-format.model';
+import { AcceptedFormatBarChart } from '../accepted-format.model';
 
 @Component({
   selector: 'app-bar-chart',
@@ -11,19 +11,19 @@ import { AcceptedFormat, Series } from '../accepted-format.model';
 export class BarChartComponent implements OnInit, OnChanges {
 
   @Input() inputs: Medicao[];
-  results: AcceptedFormat[];  
+  results: AcceptedFormatBarChart[];  
   inputsIsLoaded: boolean = false;
   view: [number, number] = [1100, 500];
   schemeType: string = "ordinal";
   gradient: boolean = false;
   xAxis: boolean = true;
   yAxis: boolean = false;
-  legendTitle: string = "Potência Ativa";
+  legendTitle: string = "Medições";
   legendPosition: LegendPosition = LegendPosition.Right;
   legend: boolean = true;
   showXAxisLabel: boolean = true;
   showYAxisLabel: boolean = true;
-  yAxisLabel: string = "Potência Ativa";
+  yAxisLabel: string = "Medição";
   xAxisLabel: string = "Data/Hora";
   animations: boolean = true;
   showGridLines: boolean = true;
@@ -49,26 +49,17 @@ export class BarChartComponent implements OnInit, OnChanges {
   }
 
   convertInputToAcceptedChartDataFormat(): void {
-    const valuesKeys = Object.keys(this.inputs[0].values); 
-    let count = 0;
-
-    while(count < valuesKeys.length) {
-      const series: Array<Series> = new Array<Series>();
-      for(let input of this.inputs) {
-        const values = Object.entries(input.values); 
-
-        series.push({
-          value: Number(values[count][1]),
-          name: input.timestamp
-        });
-      }
-
+    this.inputs.forEach((input) => {
+      const displayName = Object.keys(input.values)[0] as keyof typeof input.values;
       this.results.push({
-        name: valuesKeys[count],
-        series: series
+        name: input.timestamp,
+        value: Number(input.values[displayName]),
+        extra: {
+          displayName: displayName as string
+        }
       });
-      count++;
-    }    
+    });
+    console.log(this.results)
   }
 
   // formatXTicks(value: string): string {

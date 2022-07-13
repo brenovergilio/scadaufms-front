@@ -1,0 +1,7 @@
+<div class="medicao-table" *ngIf="inputsIsLoaded">
+  <table mat-table [dataSource]="inputs">
+    
+  </table>
+</div>
+
+<p *ngIf="!inputsIsLoaded">Não há medições para esse período</p>

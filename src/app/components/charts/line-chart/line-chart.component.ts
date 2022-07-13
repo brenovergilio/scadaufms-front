@@ -1,8 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { LegendPosition } from '@swimlane/ngx-charts';
-import { timestamp } from 'rxjs';
 import { Medicao } from '../../tabs/medicao.model';
-import { AcceptedFormat, Series } from '../accepted-format.model';
+import { AcceptedFormatLineChart, Series } from '../accepted-format.model';
 
 @Component({
   selector: 'app-line-chart',
@@ -12,7 +11,7 @@ import { AcceptedFormat, Series } from '../accepted-format.model';
 export class LineChartComponent implements OnInit, OnChanges {
 
   @Input() inputs: Medicao[];
-  results: AcceptedFormat[];  
+  results: AcceptedFormatLineChart[];  
   inputsIsLoaded: boolean = false;
   view: [number, number] = [1100, 500];
   schemeType: string = "ordinal";
