@@ -1,5 +1,5 @@
 <mat-card class="cardDateRange">
-  <form class="dateRange">
+  <form (keyup.enter)="emitDateRange()" class="dateRange">
     <mat-form-field>
       <input type="date" matInput placeholder="Data Inicial" [(ngModel)]="dateRange.initialDate" name="initialDate">
     </mat-form-field>
