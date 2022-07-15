@@ -13,22 +13,22 @@ export class BarChartComponent implements OnInit, OnChanges {
   @Input() inputs: Medicao[];
   results: AcceptedFormatBarChart[];  
   inputsIsLoaded: boolean = false;
-  view: [number, number] = [1100, 500];
+  view: [number, number] = [950, 500];
   schemeType: string = "ordinal";
   gradient: boolean = false;
   xAxis: boolean = true;
   yAxis: boolean = false;
   legendTitle: string = "Medições";
   legendPosition: LegendPosition = LegendPosition.Right;
-  legend: boolean = true;
+  legend: boolean = false;
   showXAxisLabel: boolean = true;
   showYAxisLabel: boolean = true;
+  noBarWhenZero: boolean = false;
   yAxisLabel: string = "Medição";
   xAxisLabel: string = "Data/Hora";
   animations: boolean = true;
   showGridLines: boolean = true;
-  showDataLabel: boolean = true;
-  barPadding: number = 5;
+  barPadding: number = 2;
   tooltipDisabled: boolean = false;
   roundEdges: boolean = false;
   
@@ -54,17 +54,13 @@ export class BarChartComponent implements OnInit, OnChanges {
       this.results.push({
         name: input.timestamp,
         value: Number(input.values[displayName]),
-        extra: {
-          displayName: displayName as string
-        }
       });
     });
-    console.log(this.results)
   }
 
-  // formatXTicks(value: string): string {
-  //   const pieces = value.split("/");
-  //   const time = pieces[2].split(" ");
-  //   return `${pieces[0]}/${pieces[1]} ${time[1]}`;
-  // }
+  formatXTicks(value: string): string {
+    const pieces = value.split("/");
+    const time = pieces[2].split(" ");
+    return `${pieces[0]}/${pieces[1]} ${time[1]}`;
+  }
 }

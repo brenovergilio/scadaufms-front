@@ -3,17 +3,9 @@ export interface AcceptedFormatLineChart {
   series: Array<Series>;
 }
 
-export interface AcceptedFormatBarChart {
-  name: string | Date;
-  value: number;
-  extra: Extra
-}
+export interface AcceptedFormatBarChart extends Series{}
 
 export interface Series {
   name: string | Date;
   value: number;
-}
-
-export interface Extra {
-  displayName: string;
 }

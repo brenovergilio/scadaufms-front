@@ -15,7 +15,6 @@ import { Medicao } from '../medicao.model';
 export class MedicoesTableDataSource extends DataSource<Medicao> {
   data: Medicao[] = [];
   paginator: MatPaginator | undefined;
-  sort: MatSort | undefined;
 
   constructor() {
     super();
@@ -30,12 +29,12 @@ export class MedicoesTableDataSource extends DataSource<Medicao> {
     if (this.paginator) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
-      return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
+      return merge(observableOf(this.data), this.paginator.page)
         .pipe(map(() => {
-          return this.data;
+          return this.getPagedData([...this.data ]);
         }));
     } else {
-      throw Error('Please set the paginator and sort on the data source before connecting.');
+      throw Error('Please set the paginator on the data source before connecting.');
     }
   }
 

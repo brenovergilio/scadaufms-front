@@ -25,4 +25,7 @@
   <mat-tab label="Demandas Reativas">
     <app-bar-chart [inputs]="this.medicoes"></app-bar-chart>
   </mat-tab>
+  <mat-tab label="Tabelas" *ngIf="this.medicoes !== undefined && this.medicoes.length !== 0">
+    <app-medicoes-table [inputs]="this.medicoes"></app-medicoes-table>
+  </mat-tab>
 </mat-tab-group>

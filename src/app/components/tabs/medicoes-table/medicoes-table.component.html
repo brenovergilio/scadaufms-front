@@ -1,15 +1,48 @@
 <div class="mat-elevation-z8">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    <ng-container matColumnDef="Data/Hora">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data/Hora</th>
+      <td mat-cell *matCellDef="let row">{{row.timestamp}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="Tensão Fase A">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tensão Fase A (V)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Tensao Fase A (V)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Tensão Fase B">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tensão Fase B (V)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Tensao Fase B (V)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Tensão Fase C">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tensão Fase C (V)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Tensao Fase C (V)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Corrente Fase A">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Corrente Fase A (A)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Corrente Fase A (A)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Corrente Fase B">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Corrente Fase B (A)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Corrente Fase B (A)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Corrente Fase C">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Corrente Fase C (A)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Corrente Fase C (A)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Potência Ativa Total">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Potência Ativa Total (kW)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Potencia Ativa Total (kW)']}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Potência Reativa Total">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Potência Reativa Total (kVAr)</th>
+      <td mat-cell *matCellDef="let row">{{row.values['Potencia Reativa Total (kVAr)']}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

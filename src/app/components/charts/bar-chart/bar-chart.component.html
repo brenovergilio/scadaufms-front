@@ -1,5 +1,5 @@
 <ng-container *ngIf="inputsIsLoaded">
-  <ngx-charts-bar-vertical-2d
+  <ngx-charts-bar-vertical
   [view]="view"
   [results]="results"
   [gradient]="gradient"
@@ -12,14 +12,14 @@
   [yAxisLabel]="yAxisLabel"
   [legendTitle]="legendTitle"
   [legendPosition]="legendPosition"
+  [xAxisTickFormatting]="formatXTicks"
+  [noBarWhenZero]="noBarWhenZero"
   [animations]="animations"
   [showGridLines]="showGridLines"
-  [showDataLabel]="showDataLabel"
   [barPadding]="barPadding"
   [tooltipDisabled]="tooltipDisabled"
   [roundEdges]="roundEdges">  
-  <!--  [xAxisTickFormatting]="formatXTicks" -->
-  </ngx-charts-bar-vertical-2d>
+  </ngx-charts-bar-vertical>
 </ng-container>
 
-<p *ngIf="!inputsIsLoaded">Não há medições para esse período</p>
+<p *ngIf="!inputsIsLoaded">Não há medições para este período</p>

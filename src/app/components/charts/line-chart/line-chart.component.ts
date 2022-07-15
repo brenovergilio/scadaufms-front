@@ -13,7 +13,7 @@ export class LineChartComponent implements OnInit, OnChanges {
   @Input() inputs: Medicao[];
   results: AcceptedFormatLineChart[];  
   inputsIsLoaded: boolean = false;
-  view: [number, number] = [1100, 500];
+  view: [number, number] = [950, 500];
   schemeType: string = "ordinal";
   gradient: boolean = false;
   xAxis: boolean = true;

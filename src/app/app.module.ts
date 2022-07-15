@@ -48,7 +48,6 @@ import { UsersCrudComponent } from './views/users-crud/users-crud.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserDeleteComponent } from './components/users/user-delete/user-delete.component';
 import { UserReadComponent } from './components/users/user-read/user-read.component';
-import { TableComponent } from './components/table2/table.component';
 import { MedicoesTableComponent } from './components/tabs/medicoes-table/medicoes-table.component';
 
 
@@ -80,7 +79,6 @@ registerLocaleData(localePt);
     UserCreateComponent,
     UserDeleteComponent,
     UserReadComponent,
-    TableComponent,
     MedicoesTableComponent
   ],
   imports: [
