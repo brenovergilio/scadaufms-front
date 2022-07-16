@@ -33,20 +33,12 @@ export class TabsComponent implements OnInit {
   async readMedicao(type: TipoMedicao): Promise<void> {
 
     switch (type) {
-      case TipoMedicao.Tensoes: 
-        this.medicoes = await lastValueFrom(this.medicaoService.readTensoes(this.currentMeasurerID,  this.dateRange));
+      case TipoMedicao.TensoesCorrentes: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readTensoesCorrentes(this.currentMeasurerID,  this.dateRange));
         break;
 
-      case TipoMedicao.Correntes: 
-        this.medicoes = await lastValueFrom(this.medicaoService.readCorrentes(this.currentMeasurerID,  this.dateRange));
-        break;
-
-      case TipoMedicao.Potencias_Ativas: 
-        this.medicoes = await lastValueFrom(this.medicaoService.readPotenciasAtivas(this.currentMeasurerID,  this.dateRange));
-        break;
-
-      case TipoMedicao.Potencias_Reativas: 
-        this.medicoes = await lastValueFrom(this.medicaoService.readPotenciasReativas(this.currentMeasurerID,  this.dateRange));
+      case TipoMedicao.Potencias: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readAllPotencias(this.currentMeasurerID,  this.dateRange));
         break;
       
       case TipoMedicao.Consumos_Ativos: 
@@ -63,6 +55,10 @@ export class TabsComponent implements OnInit {
 
       case TipoMedicao.Demandas_Reativas: 
         this.medicoes = await lastValueFrom(this.medicaoService.readDemandasReativas(this.currentMeasurerID,  this.dateRange));
+        break;
+
+      case TipoMedicao.Fatores_Potencia: 
+        this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotencia(this.currentMeasurerID,  this.dateRange));
         break;
       
       case TipoMedicao.Tabela: 

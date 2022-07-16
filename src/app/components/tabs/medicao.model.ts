@@ -5,13 +5,12 @@ export interface Medicao {
 }
 
 export enum TipoMedicao {
-  Tensoes = 0,
-  Correntes = 1,
-  Potencias_Ativas = 2,
-  Potencias_Reativas = 3,
-  Consumos_Ativos = 4,
-  Consumos_Reativos = 5,
-  Demandas_Ativas = 6,
-  Demandas_Reativas = 7,
-  Tabela = 8
+  TensoesCorrentes = 0,
+  Potencias = 1,
+  Consumos_Ativos = 2,
+  Consumos_Reativos = 3,
+  Demandas_Ativas = 4,
+  Demandas_Reativas = 5,
+  Fatores_Potencia = 6,
+  Tabela = 7,
 }

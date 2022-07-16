@@ -18,7 +18,7 @@ export class MedicoesTableComponent implements OnChanges, AfterViewInit {
   dataSource: MedicoesTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['Data/Hora', 'Tensão Fase A (V)','Tensão Fase B (V)', 'Tensão Fase C (V)', 'Corrente Fase A (A)', 'Corrente Fase B (A)', 'Corrente Fase C (A)', 'Potência Ativa Total (kW)', 'Potência Reativa Total (kVAr)'];
+  displayedColumns = ['Data/Hora', 'Tensão Fase A (V)','Tensão Fase B (V)', 'Tensão Fase C (V)', 'Corrente Fase A (A)', 'Corrente Fase B (A)', 'Corrente Fase C (A)', 'Potência Ativa Total (kW)', 'Potência Reativa Total (kVAr)', 'Potência Aparente Total (VA)', 'Fator De Potência'];
 
   constructor() {
     this.dataSource = new MedicoesTableDataSource();
