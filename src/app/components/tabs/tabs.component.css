@@ -6,3 +6,18 @@
   display: flex;
   justify-content: center;
 }
+
+.form-potencia-aparente {
+  width: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fator-potencia-corrigido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

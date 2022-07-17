@@ -12,5 +12,6 @@ export enum TipoMedicao {
   Demandas_Ativas = 4,
   Demandas_Reativas = 5,
   Fatores_Potencia = 6,
-  Tabela = 7,
+  Fatores_Potencia_Corrigidos = 7,
+  Tabela = 8,
 }

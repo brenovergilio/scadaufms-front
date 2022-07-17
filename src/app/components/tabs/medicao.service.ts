@@ -75,6 +75,16 @@ export class MedicaoService {
     );
   }
 
+  readFatoresPotenciaCorrigidos(measurerID: string, potenciaAparenteCapacitiva: number, dateRange: DateRange): Observable<Array<Medicao>> {
+    const url = `${this.BASE_URL}/${measurerID}/medicoes/fatores-potencia-corrigidos`;
+    const params = this.generateHttpDateRangeParams(dateRange).append('qcap', potenciaAparenteCapacitiva);
+
+    return this.http.get<Array<Medicao>>(url, { headers: this.authService.setAuthenticationBearerJWT(), params: params }).pipe(
+      map(obj => obj), 
+      catchError(error => this.handleError(error))
+    );
+  }
+
   readDemandasAtivas(measurerID: string, dateRange: DateRange): Observable<Array<Medicao>> {
     const url = `${this.BASE_URL}/${measurerID}/medicoes/demandas-ativas`;
     const params = this.generateHttpDateRangeParams(dateRange);

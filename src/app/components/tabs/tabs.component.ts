@@ -18,6 +18,7 @@ export class TabsComponent implements OnInit {
   dateRange: DateRange;
   medicoes: Array<Medicao>;
   currentTab: number = 0;
+  potenciaAparenteCapacitiva: number = 0;
 
   constructor(private medicaoService: MedicaoService, private route: ActivatedRoute) { }
 
@@ -29,6 +30,8 @@ export class TabsComponent implements OnInit {
     this.dateRange = dateRange;
     this.readMedicao(this.currentTab);
   }
+
+
 
   async readMedicao(type: TipoMedicao): Promise<void> {
 
@@ -61,10 +64,21 @@ export class TabsComponent implements OnInit {
         this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotencia(this.currentMeasurerID,  this.dateRange));
         break;
       
+      // case TipoMedicao.Fatores_Potencia: 
+      //   if(this.potenciaAparenteCapacitiva) this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotenciaCorrigidos(this.currentMeasurerID, this.potenciaAparenteCapacitiva, this.dateRange));
+      //   break;  
+      
       case TipoMedicao.Tabela: 
         this.medicoes = await lastValueFrom(this.medicaoService.readAll(this.currentMeasurerID,  this.dateRange));
         break;
       }
+  }
+
+  async corrigir(): Promise<void> {
+    this.potenciaAparenteCapacitiva = Number((<HTMLInputElement>document.getElementById("qcap")).value);
+    if(this.potenciaAparenteCapacitiva && !isNaN(this.potenciaAparenteCapacitiva)) {
+      this.medicoes = await lastValueFrom(this.medicaoService.readFatoresPotenciaCorrigidos(this.currentMeasurerID, this.potenciaAparenteCapacitiva, this.dateRange));
+    }
   }
 
   tabDefiner(event: MatTabChangeEvent): void {

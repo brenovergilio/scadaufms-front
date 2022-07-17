@@ -36,6 +36,19 @@
       <app-bar-chart [inputs]="this.medicoes"></app-bar-chart>
     </div>
   </mat-tab>
+  <mat-tab label="Fatores de Potência Corrigidos">
+    <div class="tab-item fator-potencia-corrigido">
+      <form class="form-potencia-aparente">
+        <mat-form-field>
+          <input id="qcap" matInput placeholder="Potência Aparente Capacitiva (VA)" name="potencia_aparente_capacitiva">
+        </mat-form-field>
+        <button mat-raised-button (click)="corrigir()" color="primary">
+          Corrigir
+        </button>
+      </form>
+      <app-bar-chart *ngIf="this.potenciaAparenteCapacitiva" [inputs]="this.medicoes"></app-bar-chart>
+    </div>
+  </mat-tab>
   <mat-tab label="Tabelas">
     <div class="tab-item">
       <app-medicoes-table [inputs]="this.medicoes"></app-medicoes-table>

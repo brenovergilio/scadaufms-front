@@ -46,7 +46,7 @@ export class EditTaxesComponent implements OnInit {
   }
 
   convertFieldsToNumber(): void {
-    this.taxAzul = new TaxAzul(+this.taxAzul.demandaPonta, +this.taxAzul.demandaForaPonta, +this.taxAzul.consumoPonta, +this.taxAzul.consumoForaPonta);
-    this.taxVerde = new TaxVerde(+this.taxVerde.demandaUnica, +this.taxVerde.consumoPonta, +this.taxVerde.consumoForaPonta);  
+    this.taxAzul = new TaxAzul(this.taxAzul.demandaPonta ? +this.taxAzul.demandaPonta : undefined , this.taxAzul.demandaForaPonta ? +this.taxAzul.demandaForaPonta : undefined , this.taxAzul.consumoPonta ? +this.taxAzul.consumoPonta : undefined , this.taxAzul.consumoForaPonta ? +this.taxAzul.consumoForaPonta : undefined );
+    this.taxVerde = new TaxVerde(this.taxVerde.demandaUnica ? +this.taxVerde.demandaUnica : undefined , this.taxVerde.consumoPonta ? +this.taxVerde.consumoPonta : undefined , this.taxVerde.consumoForaPonta ? +this.taxVerde.consumoForaPonta : undefined );  
   }
 }

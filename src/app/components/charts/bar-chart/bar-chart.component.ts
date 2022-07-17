@@ -31,7 +31,7 @@ export class BarChartComponent implements OnInit, OnChanges {
   barPadding: number = 2;
   tooltipDisabled: boolean = false;
   roundEdges: boolean = false;
-  
+
   constructor() { }
 
   ngOnInit(): void {
