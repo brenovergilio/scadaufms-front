@@ -1,5 +1,5 @@
 <mat-card class="cardDateRange">
-  <form (keyup.enter)="emitDateRange()" class="dateRange">
+  <form (keyup.enter)="emitDateRange(); showMessage('Medições atualizadas!');" class="dateRange">
     <mat-form-field>
       <input type="date" matInput placeholder="Data Inicial" [(ngModel)]="dateRange.initialDate" name="initialDate">
     </mat-form-field>
@@ -7,7 +7,7 @@
       <input type="date" matInput placeholder="Data Final" [(ngModel)]="dateRange.finalDate" name="finalDate">
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="emitDateRange()" color="primary">
+  <button mat-raised-button (click)="emitDateRange(); showMessage('Medições atualizadas!');" color="primary">
     Atualizar
   </button>
 </mat-card>

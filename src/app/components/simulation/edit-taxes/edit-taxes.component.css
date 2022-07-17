@@ -1,0 +1,20 @@
+.forms {
+  position: relative;
+  padding: 40px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: top;
+}
+
+form {
+  padding-right: 40px;
+}
+
+.forms button {
+  position: absolute;
+  bottom: 0;
+}
+
+button {
+  margin-top: 20px;
+}

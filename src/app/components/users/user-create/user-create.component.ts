@@ -13,7 +13,7 @@ export class UserCreateComponent implements OnInit {
   user: User = {
     username: '',
     password: '',
-    type: 2
+    type: '2'
   }
 
   constructor(private userService: UsersService, private router: Router) { }

@@ -1,0 +1,22 @@
+<app-date-range (dateRangeEmitter)="getDateRange($event)"></app-date-range>
+
+<mat-card>
+  <mat-card-subtitle>Selecione os Medidores MD30 desejados:</mat-card-subtitle>
+  <div class="group-select-box" *ngFor="let medidor of this.medidores">
+    <input type="checkbox" name="{{medidor.id}}" (change)="handleCheck($event, medidor.id)" [value]="medidor.id">{{medidor.ip}} - {{medidor.name}}
+  </div>
+
+  <div *ngIf="this.simulationReturn" class="simulation-return">
+    <div>
+      <span class="return-azul">Tarifa Azul: </span><span>{{this.simulationReturn.valorAzul}}</span>
+    </div>
+    <div>
+      <span class="return-verde">Tarifa Verde: </span><span>{{this.simulationReturn.valorVerde}}</span>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button mat-raised-button (click)="simulate()" color="primary">Simular</button>
+    <button mat-raised-button (click)="clear()" color="accent">Limpar</button>
+  </div>
+</mat-card>

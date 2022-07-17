@@ -1,0 +1,28 @@
+app-date-range {
+  display: block;
+  padding-bottom: 20px;
+}
+
+.group-select-box {
+  font-weight: 500;
+}
+
+.buttons {
+  margin-top: 10px;
+  max-width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.simulation-return {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.return-azul {
+  color: darkblue;
+}
+
+.return-verde {
+  color: darkgreen;
+}

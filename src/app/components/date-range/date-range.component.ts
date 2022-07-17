@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DateRange } from './date-range.model';
 
 @Component({
@@ -15,7 +16,7 @@ export class DateRangeComponent implements OnInit {
     finalDate: this.setDefaultDatePickerToToday()
   }
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.emitDateRange();
@@ -41,5 +42,14 @@ export class DateRangeComponent implements OnInit {
 
   emitDateRange(): void {
     this.dateRangeEmitter.emit(this.dateRange);
+  }
+
+  showMessage(message: string, isError: boolean = false): void {
+    this.snackBar.open(message, 'X', {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: isError ? ['msg-error'] : ['msg-success']
+    });
   }
 }

@@ -49,6 +49,9 @@ import { UserCreateComponent } from './components/users/user-create/user-create.
 import { UserDeleteComponent } from './components/users/user-delete/user-delete.component';
 import { UserReadComponent } from './components/users/user-read/user-read.component';
 import { MedicoesTableComponent } from './components/tabs/medicoes-table/medicoes-table.component';
+import { SimulationComponent } from './views/simulation/simulation.component';
+import { EditTaxesComponent } from './components/simulation/edit-taxes/edit-taxes.component';
+import { SimulateComponent } from './components/simulation/simulate/simulate.component';
 
 
 registerLocaleData(localePt);
@@ -79,7 +82,10 @@ registerLocaleData(localePt);
     UserCreateComponent,
     UserDeleteComponent,
     UserReadComponent,
-    MedicoesTableComponent
+    MedicoesTableComponent,
+    SimulationComponent,
+    EditTaxesComponent,
+    SimulateComponent
   ],
   imports: [
     BrowserModule,

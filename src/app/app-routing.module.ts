@@ -17,6 +17,8 @@ import { MedidorUpdateComponent } from './components/medidor/medidor-update/medi
 import { UsersCrudComponent } from './views/users-crud/users-crud.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { UserDeleteComponent } from './components/users/user-delete/user-delete.component';
+import { SimulationComponent } from './views/simulation/simulation.component';
+import { EditTaxesComponent } from './components/simulation/edit-taxes/edit-taxes.component';
 
 const routes: Routes = [
   {
@@ -67,6 +69,16 @@ const routes: Routes = [
   {
     path: "medidores/:id/alarmes",
     component: AlarmesCrudComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "simulate",
+    component: SimulationComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "simulate/edit-taxes",
+    component: EditTaxesComponent,
     canActivate: [AuthGuard]
   },
   {

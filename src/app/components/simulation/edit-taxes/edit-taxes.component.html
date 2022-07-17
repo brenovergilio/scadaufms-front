@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title>Editar tarifas</mat-card-title>
+  <div class="forms">
+    <form>
+      <mat-card-subtitle>Tarifa Azul (R$)</mat-card-subtitle>
+      <mat-form-field>
+        <input matInput required placeholder="Demanda Ponta" [(ngModel)]="taxAzul.demandaPonta" name="demanda_ponta">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Demanda Fora Ponta" [(ngModel)]="taxAzul.demandaForaPonta" name="demanda_fora_ponta">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Consumo Ponta" [(ngModel)]="taxAzul.consumoPonta" name="consumo_ponta">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Consumo Fora Ponta" [(ngModel)]="taxAzul.consumoForaPonta" name="consumo_fora_ponta">
+      </mat-form-field>
+      <button mat-raised-button (click)="updateAzul()" color="primary">
+        Editar Tarifa Azul
+      </button>
+    </form>
+  
+    <form>
+      <mat-card-subtitle>Tarifa Verde (R$)</mat-card-subtitle>
+      <mat-form-field>
+        <input matInput required placeholder="Demanda Única" [(ngModel)]="taxVerde.demandaUnica" name="demanda_unica">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Consumo Ponta" [(ngModel)]="taxVerde.consumoPonta" name="consumo_ponta">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Consumo Fora Ponta" [(ngModel)]="taxVerde.consumoForaPonta" name="consumo_fora_ponta">
+      </mat-form-field>
+      <button mat-raised-button (click)="updateVerde()" color="primary">
+        Editar Tarifa Verde
+      </button>
+    </form>
+  </div>
+  <button mat-raised-button (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

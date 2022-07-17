@@ -33,7 +33,7 @@ export class MedidorCreateComponent implements OnInit {
   createMedidor(): void {
     this.medidor.ip = formatIP(this.medidor.ip);
     this.updateInitialRushHourBeforeSendingRequest();
-    const medidorForRequest = { id: this.medidor.id, ip: this.medidor.ip, name: this.medidor.name, port: Number(this.medidor.port), rushHour: this.medidor.rush.hour, rushMinute: this.medidor.rush.minute, rushInterval: this.medidor.rush.interval };
+    const medidorForRequest = { id: this.medidor.id, ip: this.medidor.ip, name: this.medidor.name, port: this.medidor.port ? Number(this.medidor.port) : undefined, rushHour: this.medidor.rush.hour ? this.medidor.rush.hour : undefined, rushMinute: this.medidor.rush.minute ? this.medidor.rush.minute : undefined, rushInterval: this.medidor.rush.interval ? this.medidor.rush.interval : undefined };
     this.medidorService.create(medidorForRequest).subscribe(() => {
       this.medidorService.showMessage("Medidor adicionado!");
       this.router.navigate(['/medidores']);
