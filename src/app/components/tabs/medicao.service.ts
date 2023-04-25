@@ -5,13 +5,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Medicao } from './medicao.model';
 import { AuthService } from '../authentication/auth.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicaoService {
 
-  BASE_URL: string = 'http://localhost:3000/medidores';
+  BASE_URL: string = `${environment.api_url}/medidores`;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 

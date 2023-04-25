@@ -6,13 +6,14 @@ import { AuthService } from '../authentication/auth.service';
 import { DateRange } from '../date-range/date-range.model';
 import { TaxAzul, TaxVerde } from './edit-taxes/taxes.model';
 import { SimulationReturn } from './simulation-return.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SimulationService {
 
-  BASE_URL: string = 'http://localhost:3000'
+  BASE_URL: string = environment.api_url
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 

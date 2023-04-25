@@ -4,13 +4,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { AuthService } from '../authentication/auth.service';
 import { Feriado } from './feriado.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeriadoService {
 
-  BASE_URL: string = 'http://localhost:3000/feriados'
+  BASE_URL: string = `${environment.api_url}/feriados`
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 

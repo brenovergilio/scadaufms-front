@@ -4,13 +4,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { AuthService } from '../authentication/auth.service';
 import { User } from './user.model';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  BASE_URL: string = 'http://localhost:3000/users'
+  BASE_URL: string = `${environment.api_url}/users`
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient, private authService: AuthService) { }
 
